@@ -97,31 +97,31 @@ L[n1:n2:n3] ：
 
 - dict 迭代
 
-```
->>> d = {'a': 1, 'b': 2, 'c': 3}
->>> d
-{'a': 1, 'b': 2, 'c': 3}
->>> for k in d:
-...     print(k)
-... 
-a
-b
-c
->>> for k,v in d.items():
-...     print(k,v)
-... 
-a 1
-b 2
-c 3
-```
-> dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
+    ```
+    >>> d = {'a': 1, 'b': 2, 'c': 3}
+    >>> d
+    {'a': 1, 'b': 2, 'c': 3}
+    >>> for k in d:
+    ...     print(k)
+    ... 
+    a
+    b
+    c
+    >>> for k,v in d.items():
+    ...     print(k,v)
+    ... 
+    a 1
+    b 2
+    c 3
+    ```
+    > dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
 
 - 通过collections模块的Iterable判断一个对象是可迭代
 
-```
->>> from collections import Iterable
->>> isinstance(L, Iterable)
-True
->>> isinstance(d, Iterable)
-True
-```
+    ```
+    >>> from collections import Iterable
+    >>> isinstance(L, Iterable)
+    True
+    >>> isinstance(d, Iterable)
+    True
+    ```
