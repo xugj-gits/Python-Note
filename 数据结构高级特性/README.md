@@ -55,7 +55,6 @@
 >>> L[-1:-20:-2]
 [99, 97, 95, 93, 91, 89, 87, 85, 83, 81]
 ```
-### 2.总结
 L[n1:n2:n3] ：
 
 >n1代表开始元素下标,不写就是从头，这个要看n3的符号，n3是负的，那就是从最右边，正，从最左边。
@@ -69,3 +68,60 @@ L[n1:n2:n3] ：
 >无论L[0]还是L[-100] ，我觉得可以这么理解：你先把负数转换成正数。
 
 >比如：L[0:-2:2]  表示：从index=0的元素，到第（10-2）即index=8的元素。正切片，每隔2个。
+
+### 2.迭代
+
+- list 迭代
+    ```
+    >>> L = list(range(3))
+    >>> L
+    [0, 1, 2]
+    >>> for n in L:
+    ...     print(n)
+    ... 
+    0
+    1
+    2
+    >>> 
+    ```
+    如果要对list实现类似Java那样的下标循环,可以用enumerate函数把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身
+    ```
+    >>> for i, value in enumerate(L):
+    ...     print(i, value)
+    ... 
+    0 0
+    1 1
+    2 2
+    ```
+
+
+- dict 迭代
+
+```
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> d
+{'a': 1, 'b': 2, 'c': 3}
+>>> for k in d:
+...     print(k)
+... 
+a
+b
+c
+>>> for k,v in d.items():
+...     print(k,v)
+... 
+a 1
+b 2
+c 3
+```
+> dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
+
+- 通过collections模块的Iterable判断一个对象是可迭代
+
+```
+>>> from collections import Iterable
+>>> isinstance(L, Iterable)
+True
+>>> isinstance(d, Iterable)
+True
+```
