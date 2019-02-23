@@ -156,3 +156,67 @@ range() 函数可创建一个整数列表，一般用在 for 循环中。range()
 ### 4. 生成器：generator
 
 一边循环一边计算的机制，称为生成器。
+```
+>>> L = [x * x for x in range(10)]
+>>> L
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> 
+>>> 
+>>> g = (x * x for x  in range(10))
+>>> g
+<generator object <genexpr> at 0x10e5fc480>
+```
+
+L和g的区别仅在于最外层的[]和()，L是一个list，而g是一个generator。
+
+```
+打印generator
+>>> g = (x * x for x  in range(10))
+>>> g
+<generator object <genexpr> at 0x10e5fc480>
+>>> for n in g:
+...     print(n)
+... 
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+```
+
+用生成器（generator）实现斐波拉契数列 见（fib.py）结果如下：
+```
+普通实现：
+1
+1
+2
+3
+5
+8
+generator实现：
+1
+1
+2
+3
+5
+8
+```
+> 如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator
+
+### 5. 迭代器
+
+可以直接作用于for循环的数据类型有以下几种：
+
+- 集合数据类型，如list、tuple、dict、set、str等；
+- generator，包括生成器和带yield的generator function
+
+这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。
+
+- 可以使用isinstance()判断一个对象是否是Iterable对象
+
+- 可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
