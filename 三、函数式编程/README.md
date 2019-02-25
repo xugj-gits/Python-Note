@@ -23,3 +23,72 @@
 - 函数的参数可以也是函数
     函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。
     
+###### 1.1 map() 函数
+map()是 Python 内置的高阶函数，它接收一个函数 f 和一个可迭代对象，并通过把函数 f 依次作用在可迭代对象的每个元素上，map对象。
+
+    ```
+    >>> def square(x):
+    ...     return x * x
+    ... 
+    >>> a = map(square, [1, 2, 3])
+    >>> print(a)
+    <map object at 0x10f29ae80>
+    >>> print(list(a))
+    [1, 4, 9]
+    ```
+###### 1.2 reduce() 函数
+
+reduce把一个函数作用在一个序列[x1, x2, x3, ...]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算
+<font color = 'red'>reduce函数在python3的内建函数移除了，放入了functools模块</font>
+
+> functools.reduce(function, iterable[, initializer])
+
+
+```
+>>> from functools import reduce
+>>> def f(x, y):
+...     return x + y
+... 
+>>> reduce(f, [1, 2, 3])
+6
+>>> reduce(lambda x, y: x +y ,[1, 2, 3])
+6
+```
+
+###### 1.3 filter() 函数
+
+> filter(function, iterable)
+
+- filter()函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。
+- 接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判断，返回True或False，将返回True的元素放到新列表中。
+- filter()函数返回值是filter对象
+```
+>>> #过滤列表中所有奇数
+>>> def is_odd(n):
+...     return n % 2 == 1
+... 
+>>> newlist = list(filter(is_odd, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+>>> print(newlist)
+[1, 3, 5, 7, 9]
+```
+###### 1.4 sorted() 函数
+
+> sorted（iterable，*，key = None，reverse = False ）
+
+返回一个新的排序后的list
+
+```
+>>> sorted([5, 2, 3, 1, 4])
+[1, 2, 3, 4, 5]
+>>> sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'})
+[1, 2, 3, 4, 5]
+```
+
+```
+>>> sorted("This is a test string from Andrew".split(), key=str.lower)
+['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+```
+> key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。
+
+
+
