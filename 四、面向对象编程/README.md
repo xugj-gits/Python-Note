@@ -1,8 +1,8 @@
 # 面向对象编程
 
-<div style="align: center">
-<img src="面向对象编程.png"/>
-</div>
+<center>
+<img src="面向对象编程.png" width="100%">
+
 
 ### 1. 类和实例
 
