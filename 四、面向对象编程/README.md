@@ -1,7 +1,8 @@
 # 面向对象编程
 
-
-    ![面向对象编程](面向对象编程.png)
+<div style="align: center">
+<img src="面向对象编程.png"/>
+</div>
 
 ### 1. 类和实例
 
