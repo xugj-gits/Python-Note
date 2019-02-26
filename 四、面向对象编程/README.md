@@ -1,7 +1,7 @@
 # 面向对象编程
 
 <center>
-<img src="面向对象编程.png" width="100%">
+<img src="面向对象编程.png">
 
 
 ### 1. 类和实例
