@@ -1,7 +1,4 @@
 # 面向对象编程
-
-<center>
-<img src="面向对象编程.png">
  
  <div align=center><img src="面向对象编程.png"/></div>
 
