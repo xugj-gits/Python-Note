@@ -42,3 +42,60 @@
  * 在Python中，变量名类似__xxx__的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用__name__、__score__这样的变量名。
 
  在[student.py](student.py)添加了私有变量gender
+
+ ### 3. 继承和多态
+
+ 在OOP（Object Oriented Programming）程序设计中，当我们定义一个class的时候，可以从某个现有的class 继承，新的class称为子类（Subclass），而被继承的class称为基类、父类或超类（Base class、Super class）。
+
+ - 继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖重写。
+
+ - 动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的。
+
+ 举例 [Animal.py](Animal.py)
+
+ ### 4. 获取对象信息
+
+ ###### 4.1 type()判断对象类型
+ ```
+>>> type(123)
+<class 'int'>
+>>> type('str')
+<class 'str'>
+>>> type(None)
+<class 'NoneType'>
+ ```
+###### 4.2 isinstance()
+
+```
+>>> isinstance(123, int)
+True
+>>> isinstance('str', str)
+True
+>>> isinstance(b'a', bytes)
+True
+```
+###### 4.3 dir()
+
+如果要获得一个对象的所有属性和方法，可以使用dir()函数，它返回一个包含字符串的list
+```
+>>> dir(123)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+```
+### 5. 实例属性和类属性
+
+由于Python是动态语言，根据类创建的实例可以任意绑定属性。
+
+给实例绑定属性的方法是通过实例变量，或者通过self变量
+
+```
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+
+s = Student('Bob')
+# 通过实例方法绑定属性
+s.score = 90
+```
+> 在编写程序的时候，千万不要对实例属性和类属性使用相同的名字，因为相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。
+
+
