@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 
+# Only works on Unix/Linux/Mac:
 import os
 
 print('Process (%s) start...' % os.getpid())
